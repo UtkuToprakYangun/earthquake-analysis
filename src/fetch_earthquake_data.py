@@ -56,5 +56,8 @@ df["Mw"] =df["Mw"].astype(float)
 #convert type to day and time
 df["day"] = pd.to_datetime(df["day"], format = "%Y.%m.%d")
 df["time"] = pd.to_datetime(df["time"],format= "%H:%M:%S").dt.time
-print(df.dtypes)
-print(df.head())
+
+df.to_csv("data/earthquakes.csv", index = False)
+
+df2 = pd.read_csv("data/earthquakes.csv")
+print(df2.shape)
